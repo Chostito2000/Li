@@ -20,3 +20,27 @@ void ImprimeValores(IEnumerable<Book> listaDeLibros)
             );
     }
 }
+
+CREATE FUNCTION ObtenerNombrePersona
+(
+    @PersonaID INT -- Agregar un parámetro para especificar la persona
+)
+RETURNS NVARCHAR(255)
+AS
+BEGIN
+    DECLARE @Resultado NVARCHAR(255);
+
+    -- Obtener el nombre y apellido de la tabla Persona basado en @PersonaID
+    SELECT @Resultado = CONCAT(Nombre, ' ', Apellido)
+    FROM Personas
+    WHERE PersonaID = @PersonaID;
+
+    -- Verificar si se encontraron datos
+    IF @Resultado IS NULL
+    BEGIN
+        -- No se encontraron datos para el @PersonaID proporcionado
+        SET @Resultado = 'No se encontraron datos para la persona con ID ' + CAST(@PersonaID AS NVARCHAR(10));
+    END
+
+    RETURN @Resultado;
+END;
