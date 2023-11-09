@@ -4,6 +4,8 @@
 	<title>Home 02</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -402,7 +404,7 @@
 		</div>
 	</div>
 
-
+	
 <!-- Contenedor -->
 @yield('contenido')
 	
@@ -560,7 +562,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-
+	@include('sweetalert::alert')
 <!--===============================================================================================-->	
 	<script src="{{ asset('web/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->

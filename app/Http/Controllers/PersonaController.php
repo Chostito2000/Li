@@ -8,19 +8,16 @@ use App\Models\Persona;
 class PersonaController extends Controller
 {
     public function listarPersona(){
-        try{
-            DB::connection()->getPDO();
-            $nombre_dn = DB::connection()->getDatabaseName();
-            alert()->success('operacion exitosa', $nombre_dn)->toToast();
-        }catch(Exception $ex){
-            //toast('Success Toast','error');
-            alert()->error('Error', $ex->getMessage())->toToast();
+
+        $Mensaje = session('mensaje'); 
+
+        if($Mensaje) {
+            alert()->success('Operación exitosa!!!', 'Lista personas')->toToast();
         }
+
         $personas = Persona::all();
-        //$personas = [];
-        
-        //dd($personas);
-        return view('lista-personas',compact('personas'));
+        alert()->success('Operación exitosa!!!', 'Lista personas')->toToast();
+        return view('lista-personas', compact('personas'));
     }
 
     public function mostrarPersona(Request $request, $id_persona){

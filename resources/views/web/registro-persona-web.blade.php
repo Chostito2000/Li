@@ -1,89 +1,73 @@
 @extends('web.pagina-web-plantilla')
+
 @section('contenido')
-	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{ asset('web/images/bg-01.jpg')}});">
-		<h2 class="ltext-105 cl0 txt-center">
-			Registro Persona
-		</h2>
-	</section>	
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{ asset('web/images/bg-01.jpg')}});">
+    <h2 class="ltext-105 cl0 txt-center">
+        Registro Persona
+    </h2>
+</section>
 
+<section class="bg0 p-t-104 p-b-116">
+    <div class="container">
+        <div class="flex-w flex-tr">
+            <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+                <form action="{{ route('guardar.persona') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <h4 class="mtext-105 cl2 txt-center p-b-30">
+                        REGISTRO
+                    </h4>
 
-	<!-- Content page -->
-	<section class="bg0 p-t-104 p-b-116">
-		<div class="container">
-			<div class="flex-w flex-tr">
-				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-					<form>
-						<h4 class="mtext-105 cl2 txt-center p-b-30">
-							REGISTRO
-						</h4>
+                    <div class="form-group">
+                        <label for="nombres">Nombre:</label>
+                        <input type="text" id="nombres" name="nombres" class="form-control" required>
+                    </div>
 
-						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
-							<img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON">
-						</div>
+                    <div class="form-group">
+                        <label for="paterno">Apellido Paterno:</label>
+                        <input type="text" id="paterno" name="paterno" class="form-control" required>
+                    </div>
 
-						<div class="bor8 m-b-30">
-							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
-						</div>
+                    <div class="form-group">
+                        <label for="materno">Apellido Materno:</label>
+                        <input type="text" id="materno" name="materno" class="form-control" required>
+                    </div>
 
-						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-							registrar
-						</button>
-					</form>
-				</div>
+                    <div class="form-group">
+                        <label for="documento">Documento:</label>
+                        <input type="text" id="documento" name="documento" class="form-control" required>
+                    </div>
 
-				<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-					<div class="flex-w w-full p-b-42">
-						<span class="fs-18 cl5 txt-center size-211">
-							<span class="lnr lnr-map-marker"></span>
-						</span>
+                    <div class="form-group">
+                        <label for="foto">Foto:</label>
+                        <input type="file" id="foto" name="foto" class="form-control" required>
+                    </div>
 
-						<div class="size-212 p-t-2">
-							<span class="mtext-110 cl2">
-								Address
-							</span>
+                    <div class="form-group">
+                        <label for="celular">Número de Teléfono:</label>
+                        <input type="text" id="celular" name="celular" class="form-control" required>
+                    </div>
 
-							<p class="stext-115 cl6 size-213 p-t-18">
-								jr los incas 987  con av el sol
-							</p>
-						</div>
-					</div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Tu dirección de correo electrónico" required>
+                    </div>
 
-					<div class="flex-w w-full p-b-42">
-						<span class="fs-18 cl5 txt-center size-211">
-							<span class="lnr lnr-phone-handset"></span>
-						</span>
+                    <div class="form-group">
+                        <label for="msg">Mensaje:</label>
+                        <textarea id="msg" name="msg" class="form-control" placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
 
-						<div class="size-212 p-t-2">
-							<span class="mtext-110 cl2">
-								Lets Talk
-							</span>
+                    <div class="form-group">
+                        <button class="btn btn-primary">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
 
-							<p class="stext-115 cl1 size-213 p-t-18">
-								+51 972554412
-							</p>
-						</div>
-					</div>
-
-					<div class="flex-w w-full">
-						<span class="fs-18 cl5 txt-center size-211">
-							<span class="lnr lnr-envelope"></span>
-						</span>
-
-						<div class="size-212 p-t-2">
-							<span class="mtext-110 cl2">
-								Sale Support
-							</span>
-
-							<p class="stext-115 cl1 size-213 p-t-18">
-								elvisccama18@gmail.com
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>	
-
-	@endsection
+            <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
