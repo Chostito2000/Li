@@ -1,0 +1,20 @@
+CREATE TABLE personas (
+    personaID INT AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(100) NOT NULL,
+    paterno VARCHAR(100) NOT NULL,
+    materno VARCHAR(100) NOT NULL,
+    bibliografia VARCHAR(500) NOT NULL,
+    foto VARCHAR(250),
+    documento VARCHAR(10) NOT NULL,
+    celular VARCHAR(10) NOT NULL
+);
+
+
+CREATE TABLE productos (
+    productoID INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(500),
+    personaID INT,
+    FOREIGN KEY (personaID) REFERENCES personas(personaID)
+);
+
