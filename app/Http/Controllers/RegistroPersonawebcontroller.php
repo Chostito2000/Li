@@ -32,7 +32,6 @@ class RegistroPersonawebcontroller extends Controller
             
         } catch(Exception $ex){
             
-            dd($Exception->getMessage);
             return redirect()->route('registro.persona')
                 ->with('mensaje',$ex->getMessage());
         }  
