@@ -10,7 +10,8 @@ class RegistroPersonawebcontroller extends Controller
 {
     public function registroPersona(){
         // dd('hola');
-        return view('web.registro-presona-web');    
+        return view('web.registro-persona-web');
+        
     }
 
     public function guardarPersona(Request $request){
@@ -25,15 +26,17 @@ class RegistroPersonawebcontroller extends Controller
                 'celular' => $request->get('celular'),
             ];
 
-            // Persona::create($data);
-
-            return redirect()->route('lista-personas')
-                ->with('mensaje','Persona registrada correctamente!!!');
+        Persona::create($data);
+           // dd($data);
+            return redirect()
+            ->route('lista-personas')
+            ->with('mensaje','Persona registrada correctamente!!!');
             
         } catch(Exception $ex){
-            
-            return redirect()->route('registro.persona')
-                ->with('mensaje',$ex->getMessage());
+            dd($ex);
+            return redirect()
+            ->route('registro.persona')
+            ->with('mensaje',$ex->getMessage());
         }  
     }
 }

@@ -13,8 +13,8 @@ class Persona extends Model
    protected $fillable =[
     'nombres',
     'paterno',
-    'naterno',
-    'bibligrofia',
+    'materno',
+    'bibliografia',
     'foto',
     'documento',
     'celular',

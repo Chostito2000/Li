@@ -66,3 +66,4 @@ Route::get('/lista-productos/{id_producto}',
 )->name('mostrar-productos');
 
 //--------------------------------------------------------------------------------
+
