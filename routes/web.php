@@ -46,23 +46,24 @@ Route::get('/pagina-web/registro-persona',
 [RegistroPersonawebcontroller::class, 'registroPersona']
 )->name('registro.persona');
 
-Route::post('/pagina-web/guardar-persona',
-[RegistroPersonawebcontroller::class, 'guardarPersona']
-)->name('guardar.persona');
-
 
 Route::get('/pagina-web/registro-producto',
 [RegistroProductowebcontroller::class, 'registroProducto']
 )->name('registro.producto');
-
-Route::get('/pagina-web/guardar-producto',
-[RegistroProductowebcontroller::class, 'guardarProducto']
-)->name('guardar.producto');
 //------------------------------------------------------------------------------
 Route::get('/lista-productos',
  [ProductoController::class, 'listarProducto']
 )->name('lista-productos');
 
+Route::POST('/pagina-web/guardar-persona',
+[RegistroPersonawebcontroller::class, 'guardarPersona']
+)->name('guardar.persona');
+Route::POST('/pagina-web/guardar-producto',
+[RegistroProductowebcontroller::class, 'guardarProducto']
+)->name('guardar.producto');
+//--------------------------------------
 Route::get('/lista-productos/{id_producto}',
 [ProductoController::class, 'mostrarProducto']
 )->name('mostrar-productos');
+
+//--------------------------------------------------------------------------------
