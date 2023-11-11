@@ -11,12 +11,20 @@
 					<form action="{{ route('guardar.producto') }}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Nombre del Producto</label>
-							<input type="text" class="form-control" name="nombre" id="exampleFormControlInput1" placeholder="Nombre del Producto" required>
+							<label for="nombre" class="form-label">Nombre del Producto</label>
+							<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre del Producto" required>
 						</div>
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-							<textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3" required></textarea>
+							<label for="descripcion" class="form-label">Descripción</label>
+							<textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
+						</div>
+						<div class="mb-3">
+							<label for="precio" class="form-label">Precio</label>
+							<input type="number" class="form-control" name="precio" id="precio" placeholder="Precio" required>
+						</div>
+						<div class="mb-3">
+							<label for="foto" class="form-label">Foto del Producto</label>
+							<input type="file" class="form-control" name="foto" id="foto" accept="image/*" required>
 						</div>
 						<button type="submit" class="btn btn-primary">Guardar Producto</button>
 					</form>
@@ -24,6 +32,4 @@
 			</div>
 		</div>
 	</section>
-	
-
-	@endsection
+@endsection

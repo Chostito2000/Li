@@ -9,12 +9,12 @@ CREATE TABLE personas (
     celular VARCHAR(10) NOT NULL
 );
 
-
 CREATE TABLE productos (
     productoID INT AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(100) NOT NULL,
     descripcion VARCHAR(500),
+    precio DECIMAL(8,2),
+    foto VARCHAR(255),
     personaID INT,
     FOREIGN KEY (personaID) REFERENCES personas(personaID)
 );
-
