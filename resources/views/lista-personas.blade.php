@@ -18,6 +18,7 @@
             <thead>
                 <tr>
                 <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Paterno</th>
                 <th scope="col">Materno</th>
@@ -32,6 +33,7 @@
                 @foreach($personas as $persona)
                     <tr>
                         <th scope="row">1</th>
+                        <td>{{ $persona['personaID'] }}</td>
                         <td>{{ $persona['nombres'] }}</td>
                         <td>{{ $persona['paterno'] }}</td>
                         <td>{{ $persona['materno'] }}</td>
@@ -49,7 +51,13 @@
                             </a>
                             <a href="{{ route('mostrar-personas', $persona['personaID']) }}"
                             type="button" class="btn btn-info">Editar</a>
-                            <a type="button" class="btn btn-danger">Eliminar</a>
+
+                            <form action="{{ route('eliminar.persona', $persona['personaID']) }}"method="POST">
+                                @csrf
+                                @method('DELETE') 
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                           
                         </td>
                     </tr>
                 @endforeach

@@ -60,7 +60,4 @@
         }
     </style>
 </body>
-<footer>
-    <p>Derechos de autor &copy; 2023 Elvis winder ccama</p>
-</footer>
 </html>

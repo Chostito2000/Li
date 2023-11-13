@@ -37,7 +37,15 @@
                             <td class="text-center">
                                 <a href="{{ route('mostrar-productos', $producto['productoID']) }}" type="button" class="btn btn-warning">Detalles</a>
                                 <a href="{{ route('mostrar-productos', $producto['productoID']) }}" type="button" class="btn btn-info">Editar</a>
-                                <a type="button" class="btn btn-danger">Eliminar</a>
+                                
+                                
+                                <form action="{{ route('eliminar.productos', $producto['productoID']) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE') 
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                                
+                           
                             </td>
                         </tr>
                     @endforeach

@@ -39,4 +39,20 @@ class ProductoController extends Controller
         // Code from mostrarPersona method in PersonaController
         return view('mostrar-producto', compact('id_producto'));
     }
+
+    public function eliminarProducto(Request $request, $id_producto)
+    {
+        $producto = Productos::find($id_producto);
+    
+        if (!$producto) {
+            return redirect()->route("lista-productos")->with("mensaje", "El producto no fue encontrada");
+        }
+    
+        $producto->delete();
+    
+        return redirect()
+            ->route("lista-productos")
+            ->with("mensaje", "El producto fue eliminado exitosamente");
+    }
+    
 }
