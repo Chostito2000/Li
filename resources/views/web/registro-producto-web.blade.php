@@ -23,13 +23,31 @@
 							<input type="number" class="form-control" name="precio" id="precio" placeholder="Precio" required>
 						</div>
 						<div class="mb-3">
-							<label for="foto" class="form-label">Foto del Producto</label>
-							<input type="file" class="form-control" name="foto" id="foto" accept="image/*" required>
-						</div>
+							<div class="row">
+								<div class="col-md-8">
+									<label for="exampleFormControlInput1" class="form-label">Foto</label>
+									<input type="file" class="form-control" name="foto" id="input" placeholder="Foto">
+									
+								</div>
+								<div class="col-md-4">
+									<img src="" alt="" id="img" height="100">
+								</div>
+							</div>
+							
+						  </div>
 						<button type="submit" class="btn btn-primary">Guardar Producto</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
+	<script>
+		let img = document.getElementById('img');
+		let input = document.getElementById('input');
+		input.onchange = (e) => {
+  			if (input.files[0]) {
+    			img.src = URL.createObjectURL(input.files[0]);
+  			}
+		}
+	</script>
 @endsection

@@ -7,7 +7,6 @@
 		</h2>
 	</section>	
 
-
 	<!-- Content page -->
 	<section class="bg0 p-t-104 p-b-116">
 		<div class="container">
@@ -33,8 +32,17 @@
 						  </div>
 						  
 						  <div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Foto</label>
-							<input type="file" class="form-control" name="foto" id="exampleFormControlInput1" placeholder="Foto">
+							<div class="row">
+								<div class="col-md-8">
+									<label for="exampleFormControlInput1" class="form-label">Foto</label>
+									<input type="file" class="form-control" name="foto" id="input" placeholder="Foto">
+									
+								</div>
+								<div class="col-md-4">
+									<img src="" alt="" id="img" height="100">
+								</div>
+							</div>
+							
 						  </div>
 						  <div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Numero Documento</label>
@@ -54,5 +62,13 @@
 			</div>
 		</div>
 	</section>	
-
+	<script>
+		let img = document.getElementById('img');
+		let input = document.getElementById('input');
+		input.onchange = (e) => {
+  			if (input.files[0]) {
+    			img.src = URL.createObjectURL(input.files[0]);
+  			}
+		}
+	</script>
 	@endsection
