@@ -48,6 +48,9 @@
     <div class="container mt-5">
         <h1 class="mb-4">Lista de Productos</h1>
         <a type="button"  href="{{ route('registro.producto') }}" class="btn btn-primary">Registrar nuevo producto</a>
+        
+        <a type="button" target="_blank" href="{{ route('pdf.productos') }}" class="btn btn-dark">exportar pdf</a>
+        <table class="table">
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
@@ -72,17 +75,17 @@
                                 src="{{asset('storage/'.$producto['foto'])}}" 
                                 alt="Foto del producto"> 
                             </td>
-                            <td class="text-center">
-                                <a href="{{ route('mostrar-productos', $producto['productoID']) }}" type="button" class="btn btn-warning">Detalles</a>
-                                <a href="{{ route('mostrar-productos', $producto['productoID']) }}" type="button" class="btn btn-info">Editar</a>
-                                
-                                
-                                <form action="{{ route('eliminar.productos', $producto['productoID']) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE') 
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                </form>
-                                
+                            <td class="d-flex" style="text-align: center;">
+                              <a href="{{ route('mostrar-productos', $producto['productoID']) }}" class="btn btn-warning me-2">Detalles</a>
+                              <a href="{{ route('editar-producto', $producto['productoID']) }}" class="btn btn-info me-2">Editar</a>
+                          
+                              <form action="{{ route('eliminar.productos', $producto['productoID']) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE') 
+                                  <button type="submit" class="btn btn-danger me-2">Eliminar</button>
+                              </form>
+                          </td>
+                          
                            
                             </td>
                         </tr>
